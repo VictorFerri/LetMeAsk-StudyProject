@@ -16,11 +16,11 @@ export function Home() {
             <main>
                 <div className="mainContent">
                     <img src={logoImage} alt="letMeAsk" />
-                    <button>
+                    <button className="createRoom">
                         <img src={googleIconImg} alt="" />
                         Crie sua sala com o Google
                     </button>
-                    <div>Ou entre em uma sala</div>
+                    <div className="separator">Ou entre em uma sala</div>
                     <form>
                         <input
                         
