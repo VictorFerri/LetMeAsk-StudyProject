@@ -1,9 +1,10 @@
 import { useHistory } from 'react-router-dom';
 
+import { auth, firebase } from '../services/firebase';
+
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImage from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
-
 
 import { Button } from '../components/Button';
 
@@ -12,7 +13,7 @@ import '../styles/auth.scss'
 export function Home() {
     const history = useHistory();
 
-    function navigateToNewRoom(){
+    function handleCreateRoom(){
         history.push("/rooms/new");
     }
 
@@ -27,7 +28,7 @@ export function Home() {
             <main>
                 <div className="mainContent">
                     <img src={logoImage} alt="letMeAsk" />
-                    <button onClick={navigateToNewRoom} className="createRoom">
+                    <button onClick={handleCreateRoom} className="createRoom">
                         <img src={googleIconImg} alt="" />
                         Crie sua sala com o Google
                     </button>
