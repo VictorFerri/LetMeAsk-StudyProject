@@ -41,6 +41,11 @@ export function Home() {
             return;
         }
 
+        if (roomReference.val().endedAt) {
+            alert('Room already ended.');
+            return;
+        }
+
         history.push(`/rooms/${roomCode}`);
         
 
