@@ -34,6 +34,31 @@
                 color: #737380;
                 
             }
-}
+        }
+
+        button {
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+
+            &.likeButton {
+                display: flex;
+                align-items: flex-end;
+                color: #737380;
+                gap: 8px;
+
+                &.liked {
+                    color: #835AFD;
+
+                    svg path {
+                        stroke: #835AFD;
+                    }
+                }
+            }
+
+            &:hover {
+                filter: brightness(0.8);
+            }
+        }
     }
 }
