@@ -105,6 +105,8 @@ export function Room() {
                                 key={question.id}
                                 content={question.content}
                                 author={question.author}
+                                isAnswered={question.isAnswered}
+                                isHighLighted={question.isHighLighted}
                             >
                                 <button
                                     className={`likeButton ${question.likeId ? 'liked' : ''}`}
