@@ -85,18 +85,22 @@ export function AdminRoom() {
                             isAnswered={question.isAnswered}
                             isHighLighted={question.isHighLighted}
                             >
-                                <button
-                                    type="button"
-                                    onClick={() => handleCheckQuestionAsAnswered(question.id)}
-                                >
-                                    <img src={checkImg} alt="MArcar pergunta como respondida" />
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => handleHighlightQuestion(question.id)}
-                                >
-                                    <img src={answerImg} alt="Dar destaque a pergunta" />
-                                </button>
+                                {!question.isAnswered && (
+                                    <>
+                                        <button
+                                            type="button"
+                                            onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                                        >
+                                            <img src={checkImg} alt="MArcar pergunta como respondida" />
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => handleHighlightQuestion(question.id)}
+                                        >
+                                            <img src={answerImg} alt="Dar destaque a pergunta" />
+                                        </button>
+                                    </>
+                                )}
                                 <button
                                     type="button"
                                     onClick={() => handleDeleteQuestion(question.id)}
