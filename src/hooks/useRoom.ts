@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { database } from "../services/firebase";
 import { useAuth } from "./useAuth";
+import { useHistory } from "react-router-dom";
 
 type QuestionType = {
     id: string;
@@ -32,6 +33,7 @@ export function useRoom(roomId: string) {
     const { user } = useAuth();
     const [questions, setQuestions] = useState<QuestionType[]>([]);
     const [title, setTitle] = useState('');
+    const history = useHistory();
     
     useEffect(() => {
         const roomReference = database.ref(`rooms/${roomId}`);
@@ -39,6 +41,11 @@ export function useRoom(roomId: string) {
         roomReference.on('value', room => {
             const databaseRoom = room.val();
             const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
+            
+            console.log("sdasd")
+            if (databaseRoom.authorId === user?.id) {
+                history.push(`/admin/rooms/${roomId}`);
+            };
 
             const parsedQuestions = Object.entries(firebaseQuestions ?? {}).map(([key, value]) => {
                 return {
@@ -59,7 +66,7 @@ export function useRoom(roomId: string) {
         return () => {
             roomReference.off('value');
         }
-    }, [roomId, user?.id]);
+    }, [roomId, user?.id, history]);
 
     return { questions, title }
 }
