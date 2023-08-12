@@ -1,10 +1,11 @@
+@import "mixins/media";
+
 #pageAuth {
     display: flex;
     align-items: stretch;
     height: 100vh;
 
-
-    aside{
+    aside {
         flex: 7;
         background-color: #835AFD;
         color: #fff;
@@ -16,13 +17,27 @@
         padding: 120px 80px;
 
         img{
-            max-width: 320px;
+            width: 100%;
+            max-width: 280px;
+
+            @include mobile {
+                display: none;
+            }
+
+            @include tablet {
+                max-width: 250px;
+            }
         }
 
         strong{
             font: 700 36px 'Poppins', sans-serif;
             line-height: 42px;
             margin-top: 16px;
+
+            @include tablet {
+                font-size: 24px;
+                line-height: 30px;
+            }
         }
 
         p{
@@ -30,7 +45,19 @@
             line-height: 32px;
             margin-top: 16px;
             color: #eeeeee;
+
+            @include tablet {
+                font-size: 18px;
+                margin-top: 10px;
+                line-height: 20px;
+            }
         }
+
+        @include mobile {
+            flex: 4;
+            padding: 0px 32px;
+        }
+
     }
 
     main{
@@ -139,6 +166,10 @@
             background-color: #a8a8b3;
             margin-left: 16px;
         }
+    }
+
+    @include mobile {
+        flex-direction: column;
     }
     
 }

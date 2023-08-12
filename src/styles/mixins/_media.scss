@@ -1,0 +1,100 @@
+$mobile-max:575px;
+$mobile-large-min:576px;
+$mobile-large-max:767px;
+$tablet-min:768px;
+$tablet-max:991px;
+$tablet-large-min:992px;
+$tablet-large-max:1199px;
+$desktop-min:1200px;
+$desktop-max:1599px;
+$desktop-large-min:1600px;
+
+/* ============================================================================
+	Mobile
+============================================================================ */
+@mixin mobile {
+	@media screen and (max-width:$mobile-large-max) {
+		@content;
+	}
+}
+
+@mixin mobile_small {
+	@media screen and (max-width:$mobile-max) {
+		@content;
+	}
+}
+
+@mixin mobile_large {
+	@media screen and (min-width:$mobile-large-min) and (max-width:$mobile-large-max) {
+		@content;
+	}
+}
+
+@mixin mobile_large_and_table {
+	@media screen and (min-width:$mobile-large-min) and (max-width:$tablet-large-max) {
+		@content;
+	}
+}
+
+@mixin mobile_up {
+	@media screen and (min-width:$tablet-min) {
+		@content;
+	}
+}
+
+/* ============================================================================
+	Tablet
+============================================================================ */
+@mixin tablet {
+	@media screen and (min-width:$tablet-min) and (max-width:$tablet-large-max) {
+		@content;
+	}
+}
+
+@mixin tablet_small {
+	@media screen and (min-width:$tablet-min) and (max-width:$tablet-max) {
+		@content;
+	}
+}
+
+@mixin tablet_large {
+	@media screen and (min-width:$tablet-large-min) and (max-width:$tablet-large-max) {
+		@content;
+	}
+}
+
+/* ============================================================================
+	Desktop
+============================================================================ */
+@mixin desktop {
+	@media screen and (min-width:$desktop-min) {
+		@content;
+	}
+}
+
+@mixin desktop_small {
+	@media screen and (min-width:$desktop-min) and (max-width:$desktop-max) {
+		@content;
+	}
+}
+
+@mixin desktop_large {
+	@media screen and (min-width:$desktop-large-min) {
+		@content;
+	}
+}
+
+@mixin desktop_down {
+	@media screen and (max-width:$tablet-large-max) {
+		@content;
+	}
+}
+
+/* ============================================================================
+	Print
+============================================================================ */
+@mixin print {
+	@media print {
+		@content;
+	}
+}
