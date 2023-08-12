@@ -1,3 +1,5 @@
+@import "mixins/media";
+
 #pageRoom{
     header {
         padding: 24px;
@@ -22,12 +24,21 @@
             button {
                 height: 40px;
             }
-        }     
+
+            @include mobile {
+                margin-top: 20px;
+            }
+        }    
+        
+        @include mobile {
+            flex-direction: column;
+        }
     }
 
     main {
         max-width: 800px;
         margin: 0 auto;
+        padding: 0px 24px; 
 
         .roomTitle {
             margin: 32px 0 24px;
